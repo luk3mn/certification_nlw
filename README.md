@@ -58,7 +58,7 @@
 
 
 <p align="justify">
-  In this project, it can find subjects like, such as: 
+  In this project, we were able to find subjects like, such as: 
 
   - **ORM;** 
   - **JPA;** 
@@ -149,7 +149,7 @@ _Before starting this application in your local environment, it'll be necessary 
 - [x] ORM: Database implementation
 - [x] Questions: Entities and Repository
 - [x] Exception treatment
-- [ ] Top 10 classification
+- [x] Top 10 ranking
 - [ ] Back-end deploy
 
 
