@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.rocketseat.certification_nlw.modules.questions.entities.QuestionEntity;
 import com.rocketseat.certification_nlw.modules.questions.respositories.QuestionRepository;
 import com.rocketseat.certification_nlw.modules.students.dto.StudentCertificationAnswerDTO;
+import com.rocketseat.certification_nlw.modules.students.dto.VerifyHasCertificationDTO;
 import com.rocketseat.certification_nlw.modules.students.entities.AnswersCertificationEntity;
 import com.rocketseat.certification_nlw.modules.students.entities.CertificationStudentEntity;
 import com.rocketseat.certification_nlw.modules.students.entities.StudentEntity;
@@ -29,9 +30,18 @@ public class StudentCertificationAnswersUseCase {
     @Autowired
     private CertificationStudentRepository certificationStudentRepository;
 
+    @Autowired
+    private VerifyHasCertificationUseCase verifyHasCertificationUseCase;
+
     // throws Exception => allow to deal with exception in time to call this method
-    public CertificationStudentEntity execute(StudentCertificationAnswerDTO dto) {
+    public CertificationStudentEntity execute(StudentCertificationAnswerDTO dto) throws Exception {
         
+        var hasCertification = this.verifyHasCertificationUseCase.execute(new  VerifyHasCertificationDTO(dto.getEmail(), dto.getTechnology()));
+
+        if (hasCertification) {
+            throw new Exception("You've already gotten you certification!");
+        }
+
         // search by questions alternatives
         // - correct or incorrect
         List<QuestionEntity> questionEntity = questionRepository.findByTechnology(dto.getTechnology());

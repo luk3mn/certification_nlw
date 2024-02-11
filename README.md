@@ -148,7 +148,8 @@ _Before starting this application in your local environment, it'll be necessary 
 - [x] Students: entities, repository, dto, useCases, controllers
 - [x] ORM: Database implementation
 - [x] Questions: Entities and Repository
-- [ ] Security validations
+- [x] Exception treatment
+- [ ] Top 10 classification
 - [ ] Back-end deploy
 
 
