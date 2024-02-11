@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rocketseat.certification_nlw.modules.students.dto.StudentCertificationAnswerDTO;
 import com.rocketseat.certification_nlw.modules.students.dto.VerifyHasCertificationDTO;
+import com.rocketseat.certification_nlw.modules.students.entities.CertificationStudentEntity;
 import com.rocketseat.certification_nlw.modules.students.useCases.StudentCertificationAnswersUseCase;
 import com.rocketseat.certification_nlw.modules.students.useCases.VerifyHasCertificationUseCase;
 
@@ -36,7 +37,7 @@ public class StudentController {
     }
 
     @PostMapping("/certification/answer")
-    public StudentCertificationAnswerDTO certificationAnswer(@RequestBody StudentCertificationAnswerDTO studentCertificationAnswerDTO) {
+    public CertificationStudentEntity certificationAnswer(@RequestBody StudentCertificationAnswerDTO studentCertificationAnswerDTO) {
         return studentCertificationAnswersUseCase.execute(studentCertificationAnswerDTO);
     }
 
